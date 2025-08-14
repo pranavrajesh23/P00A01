@@ -1,26 +1,20 @@
 #include<iostream>
 #include<fstream>
 using namespace std;
+
+bool fileDoesExist(const string &fileToBeChecked)
+{
+    fstream file(fileToBeChecked);
+    return file.good();
+}
 int main()
 {
-    fstream fout;
-    fout.open("one.csv",ios::out | ios::app);
-    cout<<"CSV file created successfully"<<endl;
-
-    int n;
-    cout<<"Enter the no. of rows required"<<endl;
-    cin>>n;
-
-    fout<<"Name,Age,Place\n";
-    cout<<"Enter the details"<<endl;
-    
-    int age;
-    string name,place;
-    
-    for(int i=0;i<n;i++)
+    string source="source.csv";
+    if(!fileDoesExist(source))
     {
-        cin>>name>>age>>place;
-        fout<<name<<","<<age<<","<<place<<"\n";
+        cout<<"Source file does not exist by default";
     }
-    cout<<"CSV file is created and data are appended successfully";
+    else{
+        cout<<"File exist";
+    }
 }
