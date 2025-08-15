@@ -79,6 +79,7 @@ int main()
                         }
                         else
                         {
+                            cout<<"Both doestn't have similar data.\n";
                             cout<<"Coping source file to destination file.\n";
                             copyingData(source,destination);
                         }
